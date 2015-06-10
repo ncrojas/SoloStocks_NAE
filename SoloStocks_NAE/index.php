@@ -1,4 +1,4 @@
 <?php
 	echo "Bienvenidos";
-	echo " a SoloStocks"
+	echo " a SoloStocks";
 ?>
