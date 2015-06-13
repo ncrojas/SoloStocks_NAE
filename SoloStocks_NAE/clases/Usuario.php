@@ -53,9 +53,7 @@ class Usuario{
 		}
 		else{
 			return false;
-		}
-
-		
+		}		
 
 	}
 
