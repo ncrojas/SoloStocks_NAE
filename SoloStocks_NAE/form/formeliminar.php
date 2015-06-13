@@ -1,13 +1,13 @@
 <?php
 $oUsuario=new Usuario();
 ?>
-<form method="post" action="accform/accProductoEliminar.php">
+<form method="post" action="accform/accUsuarioEliminar.php">
 <?php
 While($Registro=$oUsuario->Selecciona()){
 
 ?>
-<input type="checkbox" name=elimina<?=$Registro->Idacceso()?> value="<?=$Registro->Idacceso()?>">
-<?=$Registro->Nombre()?>
+<input type="checkbox" name=elimina<?=$Registro->getNombre()?> value="<?=$Registro->getNombre()?>">
+<?=$Registro->getNombre()?>/<?=$Registro->getNombre()?>
 <br>
 <?php
 }

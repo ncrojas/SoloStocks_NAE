@@ -12,8 +12,14 @@ class Usuario{
 		$this->susuario=$susr;
 		$this->sclave=md5($sclave);
 	}
+	
+	
 	public function getNombre(){
 		return $this->snombre;
+	}
+	
+	public function getUsuario(){
+		return $this->susuario;
 	}
 
 	function VerificaUsuario(){
@@ -62,27 +68,27 @@ class Usuario{
 
 	}
 	
-	function Selecciona(){
-	
+function Selecciona(){
+		
 		if (!$this->querysel){
-			$db=dbconnect();
-			/*Definición del query que permitira ingresar un nuevo registro*/
-	
-			$sqlsel="select idacceso,nombre from usuario order by idacceso";
-	
+		$db=dbconnect();
+		/*Definición del query que permitira ingresar un nuevo registro*/
+		
+			$sqlsel="select idacceso, nombre, nomusuario from usuario";
+		
 			/*Preparación SQL*/
 			$this->querysel=$db->prepare($sqlsel);
-	
+		
 			$this->querysel->execute();
 		}
-	
+		
 		$registro = $this->querysel->fetch();
 		if ($registro){
-			return new self($registro['idacceso'], $registro['nombre']);
+			return new self($registro['idacceso'], $registro['nombre'], $registro['nomusuario']);
 		}
 		else {
 			return false;
-				
+			
 		}
 	}
 	
