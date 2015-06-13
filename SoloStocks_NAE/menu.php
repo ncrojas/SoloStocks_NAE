@@ -1,4 +1,4 @@
-<h2><img src="img/logo_duoc.jpg" alt="Logo Duoc" width="225" height="59"> Ventas Express<br>
+<h2><img src="img/logo-header.png" alt="Logo Solo Stock" width="225" height="59"><br>
 </h2>
 <div id='cssmenu'>
 <ul>
