@@ -34,30 +34,6 @@ class Usuario{
 
 	}
 	
-	function Selecciona(){
-	
-		if (!$this->querysel){
-			$db=dbconnect();
-			/*Definición del query que permitira ingresar un nuevo registro*/
-	
-			$sqlsel="select idacceso,nombre from usuario";
-	
-			/*Preparación SQL*/
-			$this->querysel=$db->prepare($sqlsel);
-	
-			$this->querysel->execute();
-		}
-	
-		$registro = $this->querysel->fetch();
-		if ($registro){
-			return new self($registro['idacceso'], $registro['nombre']);
-		}
-		else {
-			return false;
-				
-		}
-	}
-	
 	
 	
 
@@ -84,6 +60,47 @@ class Usuario{
 			return false;
 		}		
 
+	}
+	
+	function Selecciona(){
+	
+		if (!$this->querysel){
+			$db=dbconnect();
+			/*Definición del query que permitira ingresar un nuevo registro*/
+	
+			$sqlsel="select idacceso,nombre from usuario order by idacceso";
+	
+			/*Preparación SQL*/
+			$this->querysel=$db->prepare($sqlsel);
+	
+			$this->querysel->execute();
+		}
+	
+		$registro = $this->querysel->fetch();
+		if ($registro){
+			return new self($registro['idacceso'], $registro['nombre']);
+		}
+		else {
+			return false;
+				
+		}
+	}
+	
+	function Elimina($id){
+	
+		$db=dbconnect();
+	
+		/*Definición del query que permitira eliminar un registro*/
+		$sqldel="delete from usuario where idacceso=:id";
+	
+		/*Preparación SQL*/
+		$querydel=$db->prepare($sqldel);
+			
+		$querydel->bindParam(':id',$id);
+			
+		$valaux=$querydel->execute();
+	
+		return $valaux;
 	}
 
 }

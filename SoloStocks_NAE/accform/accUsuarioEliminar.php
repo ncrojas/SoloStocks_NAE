@@ -2,7 +2,7 @@
 include("../librerias.php");
 $oUsr=new Usuario();
 foreach ($_POST as $id){
-	$oPro->Elimina($id);	
+	$oUsr->Elimina($id);	
 };
 ?>
 

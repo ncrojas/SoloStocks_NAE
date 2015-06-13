@@ -5,9 +5,9 @@ $oUsuario=new Usuario();
 <?php
 While($Registro=$oUsuario->Selecciona()){
 
-	?>
-<input type="checkbox" name=elimina<?=$Registro->idacceso()?> value="<?=$Registro->nom()?>">
-<?=$Registro->Nombre()?>
+?>
+<input type="checkbox" name=elimina<?=$Registro->idacceso()?> value="<?=$Registro->Nombre()?>">
+
 <br>
 <?php
 }
