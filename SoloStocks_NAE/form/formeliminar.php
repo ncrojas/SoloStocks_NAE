@@ -7,7 +7,7 @@ While($Registro=$oUsuario->Selecciona()){
 
 ?>
 <input type="checkbox" name=elimina<?=$Registro->getNombre()?> value="<?=$Registro->getNombre()?>">
-<?=$Registro->getNombre()?>/<?=$Registro->getNombre()?>
+<?=$Registro->getNombre()?>/<?=$Registro->getUsuario()?>
 <br>
 <?php
 }
