@@ -4,8 +4,10 @@ class Usuario{
 	private $snombre;
 	private $susuario;
 	private $sclave;
+	private $querysel;
+	private $querydel;
 	
-	function __construct($snom,$susr,$sclave){
+	function __construct($snom=NULL,$susr=NULL,$sclave=NULL){
 		$this->snombre=$snom;
 		$this->susuario=$susr;
 		$this->sclave=md5($sclave);
@@ -31,6 +33,33 @@ class Usuario{
 		if ($querysel->rowcount()==1)return true; else return false;
 
 	}
+	
+	function Selecciona(){
+	
+		if (!$this->querysel){
+			$db=dbconnect();
+			/*Definición del query que permitira ingresar un nuevo registro*/
+	
+			$sqlsel="select idacceso,nombre from usuario";
+	
+			/*Preparación SQL*/
+			$this->querysel=$db->prepare($sqlsel);
+	
+			$this->querysel->execute();
+		}
+	
+		$registro = $this->querysel->fetch();
+		if ($registro){
+			return new self($registro['idacceso'], $registro['nombre']);
+		}
+		else {
+			return false;
+				
+		}
+	}
+	
+	
+	
 
 	function VerificaAcceso(){
 		$db=dbconnect();

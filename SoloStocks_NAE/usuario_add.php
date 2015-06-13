@@ -1,6 +1,4 @@
-<?php
-include('valida_acceso.php');
-?>
+<?php include('valida_acceso.php')?>
 <!doctype html>
 <html lang=''>
 <head>
@@ -9,12 +7,12 @@ include('valida_acceso.php');
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="css/styles.css">
    <script src="js/jquery-latest.min.js" type="text/javascript"></script>
-   <title>Eliminar</title>
+   <title>Agregar Usuario</title>
 </head>
 <body>
 <?php 
 include('menu.php');
-include('/form/formeliminar.php');
 ?>
+AGREGAR
 </body>
 </html>
