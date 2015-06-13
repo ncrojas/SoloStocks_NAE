@@ -1,6 +1,5 @@
 <?php
-include ('librerias.php');
-session_start();
+include('valida_acceso.php');
 ?>
 <!doctype html>
 <html lang=''>
@@ -10,22 +9,12 @@ session_start();
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="css/styles.css">
    <script src="js/jquery-latest.min.js" type="text/javascript"></script>
-   <title>Solo Stock, tus productos a un click </title>
+   <title>Eliminar</title>
 </head>
 <body>
 <?php 
 include('menu.php');
-/*
- * Verificación del usuario y clave
-* */
-if (!isset($_SESSION["oUsuario"])){
-include('form/formlogin.php');
-}
-else{
-$oUsr=$_SESSION["oUsuario"];
+include('/form/formeliminar.php');
 ?>
-
-BIENVENIDO: <?=$oUsr->getNombre();?><a href="logout.php"></br>Salir</a>
-<?php }?>
 </body>
 </html>

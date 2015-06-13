@@ -17,7 +17,7 @@ class Usuario{
 	function VerificaUsuario(){
 		$db=dbconnect();
 		/*Definici�n del query que permitira ingresar un nuevo registro*/
-		$sqlsel="select nombre from acceso
+		$sqlsel="select nombre from usuario
 		where nomusuario=:usr";
 
 		/*Preparaci�n SQL*/
@@ -35,7 +35,7 @@ class Usuario{
 	function VerificaAcceso(){
 		$db=dbconnect();
 		/*Definici�n del query que permitira ingresar un nuevo registro*/
-		$sqlsel="select nombre from acceso
+		$sqlsel="select nombre from usuario
 		where nomusuario=:usr and pwdusuario=:pwd";
 
 		/*Preparaci�n SQL*/
