@@ -1,3 +1,5 @@
+<h2><img src="img/logo_duoc.jpg" alt="Logo Duoc" width="225" height="59"> Ventas Express<br>
+</h2>
 <div id='cssmenu'>
 <ul>
 <li class='active'><a href='index.php'>Inicio</a></li>
