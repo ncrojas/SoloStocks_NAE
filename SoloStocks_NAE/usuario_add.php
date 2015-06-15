@@ -12,6 +12,7 @@
 <body>
 <?php 
 include('menu.php');
+include('/form/formagregar.php');
 ?>
 AGREGAR
 </body>
