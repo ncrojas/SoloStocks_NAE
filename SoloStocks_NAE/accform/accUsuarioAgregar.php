@@ -1,6 +1,5 @@
 <?php
-include ("../constantes.php");
-include (PATHAPP.'/clases/clsUsuario.php');
+include("../librerias.php");
 
 $objUsuario = new Usuario(
 		$_POST["txtnombres"]

@@ -108,6 +108,37 @@ function Selecciona(){
 	
 		return $valaux;
 	}
+	
+	function Agregar(){
+		$db=dbconnect();
+		$sqlins="insert into usuario (nombre,nomusuario,pwdusuario) values (:nom,:usr,:pwd)";
+	
+		// Valida si usuario existe, si existe no lo agrega.
+		if ($this->VerificaUsuario()){
+			echo "Clase Usuario:Agregar: El usuario $this->sUsuario existe en la base de datos.";
+			return false;
+		}
+	
+		/*Preparacion SQL*/
+			try {
+		$queryins=$db->prepare($sqlins);
+		}
+		catch( PDOException $Exception ) {
+		echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+		}
+	
+		/*Asignacion de parametros utilizando bindparam*/
+		$queryins->bindParam(':nom',$this->sNombres);
+		$queryins->bindParam(':usr',$this->sUsuario);
+				$queryins->bindParam(':pwd',$this->sClave);
+	
+						try {
+						$queryins->execute();
+						}
+						catch( PDOException $Exception ) {
+						echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+						}
+						}
 
 }
 ?>
