@@ -4,13 +4,13 @@ class Producto{
 	private $sCodigo;
 	private $sCantidad;
 	private $sPrecio;
-	private $sDescricion;
+	private $sDescripcion;
 
 	function __construct($cod,$can,$pre,$des){
 		$this->sCodigo=$cod;
 		$this->sCantidad=$can;
 		$this->sPrecio=$pre;
-		$this->sDescricion=$des;
+		$this->sDescripcion=$des;
 	}
 
 

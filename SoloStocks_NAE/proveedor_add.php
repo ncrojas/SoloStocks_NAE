@@ -1,4 +1,3 @@
-
 <?php include('valida_acceso.php')?>
 <!doctype html>
 <html lang=''>
