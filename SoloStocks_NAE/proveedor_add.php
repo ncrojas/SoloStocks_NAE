@@ -11,6 +11,7 @@
 </head>
 <body>
 <?php 
+/*Comentario*/
 include('menu.php');
 ?>
 
