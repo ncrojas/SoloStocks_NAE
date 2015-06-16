@@ -1,8 +1,4 @@
-<?php include('valida_acceso.php');
-include('menu.php');
-
-?>
-
+<?php include('valida_acceso.php')?>
 <!doctype html>
 <html lang=''>
 <head>
@@ -14,6 +10,13 @@ include('menu.php');
    <title>Agregar Producto</title>
 </head>
 <body>
+<?php
+include('menu.php');
+?>
+AGREGAR
+</body>
+</html>
+
 <form id="form1" name="form1" method="post" action="guardar.php">
   <table width="400" border="1">
     <tr>
@@ -38,6 +41,3 @@ include('menu.php');
     </tr>
   </table>
 </form>
-AGREGAR
-</body>
-</html>
