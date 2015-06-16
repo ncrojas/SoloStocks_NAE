@@ -10,7 +10,7 @@
 			<td colspan="3" height="30" valign="middle" align="center" style="color:#ffffff;background-color:navy;">Nuevo Usuario</td>
 		</tr>
 		<tr>
-			<td width="100">Nombres</td>
+			<td width="100">Nombre</td>
 			<td width="10" align="center">:</td>
 			<td width="290"><input type="text" name="txtnombres" id="txtnombres" /></td>
 		</tr>
@@ -31,7 +31,7 @@
 		</tr>
 		<tr>
 			<td colspan="3" height="40" valign="bottom" align="center">
-				<input type="submit" id="btngrabar" value="Guardar" />
+				<input type="submit" id="btngrabar" value="Agregar" />
 			</td>
 		</tr>
 		<tr>

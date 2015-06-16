@@ -6,6 +6,7 @@ class Usuario{
 	private $sclave;
 	private $querysel;
 	private $querydel;
+	private $queryins;
 	
 	function __construct($snom=NULL,$susr=NULL,$sclave=NULL){
 		$this->snombre=$snom;
