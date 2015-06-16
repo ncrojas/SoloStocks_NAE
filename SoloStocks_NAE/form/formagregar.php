@@ -51,7 +51,7 @@ $(document).ready(function(){
 			/*Llamada a metodo JQUERY:AJAX para procesor el formulario*/
 			$.ajax({
 				  method: "POST",
-				  url: "usuario_acc.php",
+				  url: "accUsuarioAgregar.php",
 				  data: svarform,
 				  success: function(result){
 					  $("#divmensaje").html(result);
