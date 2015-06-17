@@ -1,6 +1,7 @@
 <?php 
 
 class Usuario{
+	private $sId;
 	private $snombre;
 	private $susuario;
 	private $sclave;
@@ -21,6 +22,14 @@ class Usuario{
 	
 	public function getUsuario(){
 		return $this->susuario;
+	}
+	
+	function getId(){
+		return $this->sId;
+	}
+	
+	function setId($id){
+		$this->sId=$id;
 	}
 
 	function VerificaUsuario(){
@@ -130,9 +139,9 @@ function Selecciona(){
 			}
 	
 		/*Asignacion de parametros utilizando bindparam*/
-		$queryins->bindParam(':nom',$this->sNombres);
-		$queryins->bindParam(':usr',$this->sUsuario);
-		$queryins->bindParam(':pwd',$this->sClave);
+		$queryins->bindParam(':nom',$this->snombre);
+		$queryins->bindParam(':usr',$this->susuario);
+		$queryins->bindParam(':pwd',$this->sclave);
 	
 						try {
 						$queryins->execute();
@@ -140,6 +149,54 @@ function Selecciona(){
 						catch( PDOException $Exception ) {
 						echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
 						}
+			}
+			
+			function Editar(){
+				$db=dbconnect();
+				$sqlupd="update usuario set nombre=:nom where id=:id";
+			
+				/*Preparacion SQL*/
+				try {
+					$queryupd=$db->prepare($sqlupd);
+				}
+				catch( PDOException $Exception ) {
+					echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				}
+			
+				/*Asignacion de parametros utilizando bindparam*/
+				$queryupd->bindParam(':nom',$this->snombre);
+				$queryupd->bindParam(':id',$this->sId);
+			
+				try {
+					$queryupd->execute();
+				}
+				catch( PDOException $Exception ) {
+					echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				}
+			}
+			
+
+			function BuscarPorID(){
+				$querysel = "";
+				$db=dbconnect();
+			
+				$sqlsel="select id, nombre, nomusuario, pwdusuario from usuario where id=:id";
+			
+				/*Preparación SQL*/
+				$querysel=$db->prepare($sqlsel);
+			
+				/*Asignación de parametros utilizando bindparam*/
+				$querysel->bindParam(':id',$this->sId);
+			
+				$datos=$querysel->execute();
+			
+				$registro = $querysel->fetch();
+				if ($registro){
+					return new self($registro['id'], $registro['nombre'], $registro['nomusuario']);
+				} else {
+					return false;
+				}
+			
 			}
 
 }

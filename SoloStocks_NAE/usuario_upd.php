@@ -12,7 +12,8 @@
 <body>
 <?php 
 include('menu.php');
+include('/form/formactualizar.php');
 ?>
-SELECCIONAR
+
 </body>
 </html>
