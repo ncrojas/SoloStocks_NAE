@@ -121,17 +121,18 @@ function Selecciona(){
 		}
 	
 		/*Preparacion SQL*/
-			try {
-		$queryins=$db->prepare($sqlins);
-		}
-		catch( PDOException $Exception ) {
-		echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
-		}
+		try {
+			$queryins=$db->prepare($sqlins);
+			}
+			catch( PDOException $Exception ) {
+			echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				return false;
+			}
 	
 		/*Asignacion de parametros utilizando bindparam*/
 		$queryins->bindParam(':nom',$this->sNombres);
 		$queryins->bindParam(':usr',$this->sUsuario);
-				$queryins->bindParam(':pwd',$this->sClave);
+		$queryins->bindParam(':pwd',$this->sClave);
 	
 						try {
 						$queryins->execute();
@@ -139,7 +140,7 @@ function Selecciona(){
 						catch( PDOException $Exception ) {
 						echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
 						}
-						}
+			}
 
 }
 ?>

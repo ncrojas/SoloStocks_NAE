@@ -4,7 +4,7 @@
 	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-<form id="frmdatos" method="post">
+<form action="accform/accUsuarioAgregar.php" id="frmdatos" method="post">
 	<table width="400">
 		<tr>
 			<td colspan="3" height="30" valign="middle" align="center" style="color:#ffffff;background-color:navy;">Nuevo Usuario</td>
@@ -25,11 +25,6 @@
 			<td width="290"><input type="password" name="txtclave" id="txtclave" /></td>
 		</tr>
 		<tr>
-			<td width="100">Re-Clave</td>
-			<td width="10" align="center">:</td>
-			<td width="290"><input type="password" name="txtreclave" id="txtreclave" /></td>
-		</tr>
-		<tr>
 			<td colspan="3" height="40" valign="bottom" align="center">
 				<input type="submit" id="btngrabar" value="Agregar" />
 			</td>
@@ -42,7 +37,7 @@
 	</table>
 </form>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 $(document).ready(function(){
 	/*Llamada a PHP para procesar el formulario*/
@@ -51,14 +46,13 @@ $(document).ready(function(){
 			/*Llamada a metodo JQUERY:AJAX para procesor el formulario*/
 			$.ajax({
 				  method: "POST",
-				  url: "accUsuarioAgregar.php",
+				  url: "accform/accUsuarioAgregar.php",
 				  data: svarform,
 				  success: function(result){
 					  $("#divmensaje").html(result);
 					  $("#txtnombres").value = '';
 					  $("#txtusuario").value = '';
-					  $("#txtclave").value = '';
-					  $("#txtreclave").value = '';
+					  $("#txtclave").value = '';					 
 		    		}
 				});
 			/*Detiene la ejecución del envio del formulario*/
@@ -66,7 +60,7 @@ $(document).ready(function(){
 			});	
 	});
 
-</script>
+</script>  -->
 
 </body>
 </html>

@@ -12,5 +12,5 @@ echo "Registro Agregado <br/>";
 echo "<br/>Usuario: ".$_POST["txtusuario"];
 echo "<br/>Nombre: ".$_POST["txtnombres"];
 
-echo "<br /><a href='usuario_ls.php'>Aceptar</a>";
+echo "<br /><a href='../index.php'>Aceptar</a>";
 ?>
