@@ -7,7 +7,7 @@ While($Registro=$oProducto->Selecciona()){
 
 ?>
 <input type="checkbox" name=elimina<?=$Registro->getCodigo()?> value="<?=$Registro->getCodigo()?>">
-<?=$Registro->getCodigo()?>/<?=$Registro->getDescripcion()?>
+<?=$Registro->getCodigo()?>/<?=$Registro->getCantidad()?>/<?=$Registro->getPrecio()?>/<?=$Registro->getDescripcion()?>
 <br>
 <?php
 }
