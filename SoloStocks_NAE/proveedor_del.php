@@ -11,8 +11,8 @@
 </head>
 <body>
 <?php 
-include('menu.php');
+	include('menu.php');
+	include('/form/formProveedorEliminar.php');
 ?>
-ELIMINAR
 </body>
 </html>

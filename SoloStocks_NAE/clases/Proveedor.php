@@ -81,7 +81,7 @@ class Proveedor{
 			/*Definición del query que permitira ingresar un nuevo registro*/
 	
 			$sqlsel = " SELECT idproveedor, nombre, descripcion, direccion, pais ";
-			$sqlsel.= " FROM productos ORDER BY nombre ";
+			$sqlsel.= " FROM proveedor ORDER BY nombre ";
 			
 			/*Preparación SQL*/
 			$this->querysel=$db->prepare($sqlsel);
@@ -110,7 +110,7 @@ class Proveedor{
 		$querydel=$db->prepare($sqldel);
 			
 		$querydel->bindParam(':id',$id);
-			
+		
 		$valaux=$querydel->execute();
 	
 		return $valaux;
