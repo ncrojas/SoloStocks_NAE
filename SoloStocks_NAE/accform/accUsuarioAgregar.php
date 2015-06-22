@@ -1,7 +1,7 @@
 <?php
 include("../librerias.php");
 
-$objUsuario = new Usuario(
+$objUsuario = new Usuario(0,
 		$_POST["txtnombres"]
 		, $_POST["txtusuario"]
 		, md5($_POST["txtclave"]));
