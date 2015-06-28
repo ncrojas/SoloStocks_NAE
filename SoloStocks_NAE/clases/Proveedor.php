@@ -74,31 +74,6 @@ class Proveedor{
 	/*       F U N C I O N E S        */
 	/* ****************************** */
 	
-	function Selecciona(){
-	
-		if (!$this->querysel){
-			$db=dbconnect();
-			/*Definición del query que permitira ingresar un nuevo registro*/
-	
-			$sqlsel = " SELECT idproveedor, nombre, descripcion, direccion, pais ";
-			$sqlsel.= " FROM proveedor ORDER BY nombre ";
-			
-			/*Preparación SQL*/
-			$this->querysel=$db->prepare($sqlsel);
-			
-			$this->querysel->execute();
-		}
-		
-		$registro = $this->querysel->fetch();
-		if ($registro){
-			return new self($registro['idproveedor'], $registro['nombre'], $registro['descripcion'], $registro['direccion'], $registro['pais']);
-		}
-		else {
-			return false;
-				
-		}
-	}
-	
 	function Elimina($id){
 	
 		$db=dbconnect();
@@ -139,6 +114,83 @@ class Proveedor{
 			$queryins->execute();
 		} catch( PDOException $Exception ) {
 			echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+		}
+	}
+	
+	
+	function Actualizar(){
+		$db=dbconnect();
+		$sqlupd = " UPDATE proveedor SET nombre=:nom, descripcion=:des, direccion=:dir, pais=:pai ";
+		$sqlupd.= " WHERE idproveedor=:id ";
+		
+		/*Preparacion SQL*/
+		try {
+			$queryupd=$db->prepare($sqlupd);
+		} catch( PDOException $Exception ) {
+			echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+		}
+		
+		/*Asignacion de parametros utilizando bindparam*/
+		$queryupd->bindParam(':nom',$this->sNombre);
+		$queryupd->bindParam(':des',$this->sDescripcion);
+		$queryupd->bindParam(':dir',$this->sDireccion);
+		$queryupd->bindParam(':pai',$this->sPais);
+		$queryupd->bindParam(':id',$this->nIdProveedor);
+		
+		try {
+			$queryupd->execute();
+		} catch( PDOException $Exception ) {
+			echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+		}
+	}
+	
+	
+	function Selecciona(){
+	
+		if (!$this->querysel){
+			$db=dbconnect();
+			/*Definición del query que permitira ingresar un nuevo registro*/
+	
+			$sqlsel = " SELECT idproveedor, nombre, descripcion, direccion, pais ";
+			$sqlsel.= " FROM proveedor ORDER BY nombre ";
+				
+			/*Preparación SQL*/
+			$this->querysel=$db->prepare($sqlsel);
+				
+			$this->querysel->execute();
+		}
+	
+		$registro = $this->querysel->fetch();
+		if ($registro){
+			return new self($registro['idproveedor'], $registro['nombre'], $registro['descripcion'], $registro['direccion'], $registro['pais']);
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function LeerRegistro(){
+		if (!$this->querysel){
+			$db=dbconnect();
+			/*Definición del query que permitira ingresar un nuevo registro*/
+			
+			$sqlsel = " SELECT idproveedor, nombre, descripcion, direccion, pais ";
+			$sqlsel.= " FROM proveedor WHERE idproveedor=:id ";
+			
+			/*Preparación SQL*/
+			$querysel=$db->prepare($sqlsel);
+			
+			$querysel->bindParam(':id',$this->nIdProveedor);
+			
+			$querysel->execute();
+		}
+		
+		$registro = $querysel->fetch();
+		if ($registro){
+			return new self($registro['idproveedor'], $registro['nombre'], $registro['descripcion'], $registro['direccion'], $registro['pais']);
+		}
+		else {
+			return false;
 		}
 	}
 }

@@ -1,4 +1,18 @@
-<?php include('valida_acceso.php');?>
+<?php 
+	include('valida_acceso.php');
+	//include('clases/Proveedor.php');
+	
+// Lee datos del registro a editar
+$oProveedor = new Proveedor();
+
+if (isset($_POST["hidcodigo"])){
+	$oProveedor->setIdProveedor($_POST["hidcodigo"]);
+	$Registro = $oProveedor->LeerRegistro();
+} else {
+	echo "Código no especificado.";
+	exit();
+}
+?>
 <!doctype html>
 <html lang=''>
 <head>
@@ -7,7 +21,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="css/styles.css">
    <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
-   <title>Agregar Proveedor</title>
+   <title>Editar Proveedor</title>
 </head>
 <body>
 <?php 
@@ -18,27 +32,32 @@
 	<form id="frmdatos" method="post">
 		<table style="width:400px;">
 			<tr>
-				<td colspan="3" height="30" valign="middle" align="center" style="color:#ffffff;background-color:#ff5512;">Nuevo Proveedor</td>
+				<td colspan="3" height="30" valign="middle" align="center" style="color:#ffffff;background-color:#ff5512;">Editar Proveedor</td>
+			</tr>
+			<tr>
+				<td width="100">Id</td>
+				<td width="10" align="center">:</td>
+				<td width="290"><?=$Registro->getIdProveedor();?><input type="hidden" name="hidid" id="hidid" value="<?=$Registro->getIdProveedor();?>" /></td>
 			</tr>
 			<tr>
 				<td width="100">Nombre</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="text" name="txtnombre" id="txtnombre" /></td>
+				<td width="290"><input type="text" name="txtnombre" id="txtnombre" value="<?=$Registro->getNombre();?>" /></td>
 			</tr>
 			<tr>
 				<td width="100">Descripci&oacute;n</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="text" name="txtdescripcion" id="txtdescripcion" /></td>
+				<td width="290"><input type="text" name="txtdescripcion" id="txtdescripcion" value="<?=$Registro->getDescripcion();?>" /></td>
 			</tr>
 			<tr>
 				<td width="100">Direcci&oacute;n</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="text" name="txtdireccion" id="txtdireccion" /></td>
+				<td width="290"><input type="text" name="txtdireccion" id="txtdireccion" value="<?=$Registro->getDireccion();?>" /></td>
 			</tr>
 			<tr>
 				<td width="100">Pa&iacute;s</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="text" name="txtpais" id="txtpais" /></td>
+				<td width="290"><input type="text" name="txtpais" id="txtpais" value="<?=$Registro->getPais();?>" /></td>
 			</tr>
 			<tr>
 				<td colspan="3" height="40" valign="bottom" align="center">
@@ -63,7 +82,7 @@ $(document).ready(function(){
 			/*Llamada a metodo JQUERY:AJAX para procesor el formulario*/
 			$.ajax({
 				  method: "POST",
-				  url: "accform/accProveedorAgregar.php",
+				  url: "accform/accProveedorActualizar.php",
 				  data: svarform,
 				  success: function(result){
 					  $("#divmensaje").html(result);
