@@ -22,7 +22,7 @@
 <li class='has-sub'><a href='#'>Mantenedor Proveedor</a>
 	<ul> 
 	<li ><a href='proveedor_add.php'>Agregar</a></li>
-	<li ><a href='proveedor_upd.php'>Actualizar</a></li>
+	<li ><a href='proveedor_lst.php'>Actualizar</a></li>
 	<li ><a href='proveedor_del.php'>Eliminar</a></li>
 	</ul>
 </li>
