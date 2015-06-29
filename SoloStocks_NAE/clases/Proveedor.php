@@ -127,7 +127,7 @@ class Proveedor{
 		try {
 			$queryupd=$db->prepare($sqlupd);
 		} catch( PDOException $Exception ) {
-			echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+			echo "Clase Proveedor:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
 		}
 		
 		/*Asignacion de parametros utilizando bindparam*/
@@ -140,7 +140,7 @@ class Proveedor{
 		try {
 			$queryupd->execute();
 		} catch( PDOException $Exception ) {
-			echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+			echo "Clase Proveedor:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
 		}
 	}
 	

@@ -20,6 +20,10 @@ class Usuario{
 		return $this->snombre;
 	}
 	
+	public function getClave(){
+		return $this->sclave;
+	}
+	
 	public function getUsuario(){
 		return $this->susuario;
 	}
@@ -84,7 +88,7 @@ function Selecciona(){
 		$db=dbconnect();
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		
-			$sqlsel="select idacceso, nombre, nomusuario from usuario";
+			$sqlsel="SELECT idacceso, nombre, nomusuario FROM usuario ORDER BY nombre";
 		
 			/*Preparación SQL*/
 			$this->querysel=$db->prepare($sqlsel);
@@ -197,6 +201,56 @@ function Selecciona(){
 					return false;
 				}
 			
+			}
+			
+			function LeerRegistro(){
+				if (!$this->querysel){
+					$db=dbconnect();
+					
+						
+					$sqlsel = " SELECT idacceso, nombre, nomusuario, pwdusuario ";
+					$sqlsel.= " FROM usuario WHERE idacceso=:id ";
+						
+					/*Preparación SQL*/
+					$querysel=$db->prepare($sqlsel);
+						
+					$querysel->bindParam(':id',$this->sId);
+						
+					$querysel->execute();
+				}
+			
+				$registro = $querysel->fetch();
+				if ($registro){
+					return new self($registro['idacceso'], $registro['nombre'], $registro['nomusuario'], $registro['pwdusuario']);
+				}
+				else {
+					return false;
+				}
+			}
+			
+			function Actualizar(){
+				$db=dbconnect();
+				$sqlupd = " UPDATE usuario SET nombre=:nom, nomusuario=:nus, pwdusuario=:pus ";
+				$sqlupd.= " WHERE idacceso=:id ";
+			
+				/*Preparacion SQL*/
+				try {
+					$queryupd=$db->prepare($sqlupd);
+				} catch( PDOException $Exception ) {
+					echo "Clase Usuario:ERROR:Preparacion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				}
+			
+				/*Asignacion de parametros utilizando bindparam*/
+				$queryupd->bindParam(':nom',$this->sNombre);
+				$queryupd->bindParam(':nus',$this->susuario);
+				$queryupd->bindParam(':pus',$this->sclave);
+				$queryupd->bindParam(':id',$this->sId);
+			
+				try {
+					$queryupd->execute();
+				} catch( PDOException $Exception ) {
+					echo "Clase Usuario:ERROR:Ejecucion Query ".$Exception->getMessage( ).'/'. $Exception->getCode( );
+				}
 			}
 
 }
