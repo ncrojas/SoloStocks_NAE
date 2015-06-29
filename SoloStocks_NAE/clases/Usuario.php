@@ -88,7 +88,7 @@ function Selecciona(){
 		$db=dbconnect();
 		/*Definición del query que permitira ingresar un nuevo registro*/
 		
-			$sqlsel="SELECT idacceso, nombre, nomusuario FROM usuario ORDER BY nombre";
+			$sqlsel="SELECT idacceso, nombre, nomusuario, pwdusuario FROM usuario ORDER BY nombre";
 		
 			/*Preparación SQL*/
 			$this->querysel=$db->prepare($sqlsel);
@@ -98,7 +98,7 @@ function Selecciona(){
 		
 		$registro = $this->querysel->fetch();
 		if ($registro){
-			return new self($registro['idacceso'], $registro['nombre'], $registro['nomusuario']);
+			return new self($registro['idacceso'], $registro['nombre'], $registro['nomusuario'],$registro['pwdusuario']);
 		}
 		else {
 			return false;
@@ -241,10 +241,11 @@ function Selecciona(){
 				}
 			
 				/*Asignacion de parametros utilizando bindparam*/
-				$queryupd->bindParam(':nom',$this->sNombre);
+				$queryupd->bindParam(':id',$this->sId);
+				$queryupd->bindParam(':nom',$this->snombre);
 				$queryupd->bindParam(':nus',$this->susuario);
 				$queryupd->bindParam(':pus',$this->sclave);
-				$queryupd->bindParam(':id',$this->sId);
+				
 			
 				try {
 					$queryupd->execute();

@@ -8,7 +8,7 @@ $objUsuario = new Usuario ($_POST["hidid"],
 		, $_POST["txtclave"]		
 );
 
-$objUsuarior->Actualizar();
+$objUsuario->Actualizar();
 
 
 // Se muestra mensaje de exito

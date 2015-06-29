@@ -37,7 +37,7 @@ if (isset($_POST["hidcodigo"])){
 			<tr>
 				<td width="100">Id</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><?=$Registro->getId()?><input type="hidden" name="hidid" id="hidid" value="<?=$Registro->getId();?>" /></td>
+				<td width="290"><input type="hidden" name="hidid" id="hidid" value="<?=$Registro->getId();?>" /></td>
 			</tr>
 			<tr>
 				<td width="100">Nombre</td>

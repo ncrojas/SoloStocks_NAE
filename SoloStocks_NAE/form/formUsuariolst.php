@@ -17,8 +17,8 @@ $oUsuario=new Usuario();
 <?php
 		While($Registro=$oUsuario->Selecciona()){?>
 			<tr>
-				<td align="center"><a href="#" onclick="<?="javascript:editar(".$Registro->getId().");";?>">Editar</a></td>
-				<td><?=$Registro->getId()?></td>
+				<td align="center"><a href="#" onclick="<?="javascript:editar(".$Registro->getId().");";?>">Editar</a></td>	
+				<td><?=$Registro->getId()?></td>			
 				<td><?=$Registro->getNombre()?></td>
 				<td><?=$Registro->getUsuario()?></td>
 				<td><?=$Registro->getClave()?></td>
