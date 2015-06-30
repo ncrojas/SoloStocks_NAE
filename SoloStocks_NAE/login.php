@@ -1,7 +1,7 @@
 <?php
 include 'librerias.php';
 
-$usr=new Usuario("",$_POST['usuario'], $_POST['clave']);
+$usr=new Usuario("","",$_POST['usuario'], $_POST['clave']);
 
 session_start();
 if($usr->VerificaAcceso()){
