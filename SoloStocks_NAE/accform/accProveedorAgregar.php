@@ -1,4 +1,5 @@
 <?php
+
 include ("../librerias.php");
 
 // Se crea objeto producto con la informacion del formulario y se agrega a bd
@@ -21,3 +22,4 @@ echo "<br/>Pa&iacute;s: ".$_POST["txtpais"];
 
 echo "<br /><a href='index.php'>Aceptar</a>";
 ?>
+

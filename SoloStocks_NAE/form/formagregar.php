@@ -1,10 +1,14 @@
 <html>
 <head>
-	<title><?php echo TITULOAPP;?></title>
-	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="css/styles.css">
+   <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+   <title>Agregar Usuario</title>
 </head>
 <body>
-<form action="accform/accUsuarioAgregar.php" id="frmdatos" method="post">
+<form id="frmdatos" method="post">
 	<table width="400">
 		<tr>
 			<td colspan="3" height="30" valign="middle" align="center" style="color:#ffffff;background-color:navy;">Nuevo Usuario</td>
@@ -37,7 +41,7 @@
 	</table>
 </form>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
 $(document).ready(function(){
 	/*Llamada a PHP para procesar el formulario*/
@@ -52,7 +56,7 @@ $(document).ready(function(){
 					  $("#divmensaje").html(result);
 					  $("#txtnombres").value = '';
 					  $("#txtusuario").value = '';
-					  $("#txtclave").value = '';					 
+					  $("#txtclave").value = '';					  
 		    		}
 				});
 			/*Detiene la ejecución del envio del formulario*/
@@ -60,7 +64,7 @@ $(document).ready(function(){
 			});	
 	});
 
-</script>  -->
+</script>
 
 </body>
 </html>

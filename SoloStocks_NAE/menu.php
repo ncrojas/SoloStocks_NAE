@@ -6,7 +6,7 @@
 <li class='has-sub'><a href='#'>Mantenedor Usuario</a>
 	<ul> 
 	<li ><a href='usuario_add.php'>Agregar</a></li>
-	<li ><a href='usuario_upd.php'>Actualizar</a></li>
+	<li ><a href='usuario_lst.php'>Actualizar</a></li>
 	<li ><a href='usuario_del.php'>Eliminar</a></li>
 	</ul>
 </li>
