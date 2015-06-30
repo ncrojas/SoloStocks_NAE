@@ -7,5 +7,5 @@ foreach ($_POST as $id){
 ?>
 
 <script>
-	document.location.href="http://localhost/SoloStocks_NAE/usuario_del.php";
+	document.location.href="../usuario_del.php";
 </script>

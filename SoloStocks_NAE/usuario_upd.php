@@ -37,7 +37,7 @@ if (isset($_POST["hidcodigo"])){
 			<tr>
 				<td width="100">Id</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="hidden" name="hidid" id="hidid" value="<?=$Registro->getId();?>" /></td>
+				<td width="290"><input type="hidden" name="hidid" id="hidid" value="<?=$Registro->getId();?>" /><?=$Registro->getId();?></td>
 			</tr>
 			<tr>
 				<td width="100">Nombre</td>
@@ -51,7 +51,7 @@ if (isset($_POST["hidcodigo"])){
 			</tr>
 			<tr>
 				<td width="100">Clave</td>
-				<td width="10" align="c enter">:</td>
+				<td width="10" align="center">:</td>
 				<td width="290"><input type="text" name="txtclave" id="txtclave" value="<?=$Registro->getClave();?>" /></td>
 			</tr>
 			<tr>

@@ -9,7 +9,8 @@ class Usuario{
 	private $querydel;
 	private $queryins;
 	
-	function __construct($snom=NULL,$susr=NULL,$sclave=NULL){
+	function __construct($sid=NULL,$snom=NULL,$susr=NULL,$sclave=NULL){
+		$this->sId=$sid;
 		$this->snombre=$snom;
 		$this->susuario=$susr;
 		$this->sclave=md5($sclave);
