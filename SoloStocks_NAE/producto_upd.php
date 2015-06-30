@@ -47,12 +47,12 @@ if (isset($_POST["hidcodigo"])){
 			<tr>
 				<td width="100">Cantidad</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="text" name="txtdireccion" id="txtdireccion" value="<?=$Registro->getCantidad();?>" /></td>
+				<td width="290"><input type="text" name="txtcantidad" id="txtcantidad" value="<?=$Registro->getCantidad();?>" /></td>
 			</tr>
 			<tr>
 				<td width="100">Precio</td>
 				<td width="10" align="center">:</td>
-				<td width="290"><input type="text" name="txtpais" id="txtpais" value="<?=$Registro->getPrecio();?>" /></td>
+				<td width="290"><input type="text" name="txtprecio" id="txtprecio" value="<?=$Registro->getPrecio();?>" /></td>
 			</tr>
 			<tr>
 				<td colspan="3" height="40" valign="bottom" align="center">

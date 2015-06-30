@@ -15,8 +15,8 @@ $objProducto->Actualizar();
 echo "Registro Actualizado <br/>";
 echo "<br/>Id: ".$_POST["hidid"];
 echo "<br/>Descripci&oacute;n: ".$_POST["txtdescripcion"];
-echo "<br/>Canti&oacute;n: ".$_POST["txtcantidad"];
-echo "<br/>Prec&iacute;s: ".$_POST["txtprecio"];
+echo "<br/>Cantidad: ".$_POST["txtcantidad"];
+echo "<br/>Precio: ".$_POST["txtprecio"];
 
 echo "<br /><a href='producto_lst.php'>Aceptar</a>";
 ?>
