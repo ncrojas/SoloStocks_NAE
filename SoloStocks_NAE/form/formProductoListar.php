@@ -5,14 +5,17 @@ $oProducto=new Producto();
 <input type="hidden" name="hidcodigo" id="hidcodigo" value="" />
 	<table style="width:700px;">
 		<tr>
+			<td colspan="5" style="text-align: right;"><a href="form/formProductoPDF.php"><img src="img/pdf.png" height="16" width="16" />Guardar Pdf</a></td>
+		</tr>
+		<tr>
 			<td colspan="5" height="30" valign="middle" align="center" style="color:#ffffff;background-color:#ff5512;">Producto</td>
 		</tr>
 		<tr style="background-color:#d8d8b1;">
 			<td>&nbsp;</td>
 			<td>Codigo</td>
 			<td>Descripcion</td>
-			<td>Canti&oacute;n</td>
-			<td>Prec&iacute;s</td>
+			<td>Cantidad</td>
+			<td>Precio</td>
 		</tr>
 <?php
 		While($Registro=$oProducto->Selecciona()){?>
