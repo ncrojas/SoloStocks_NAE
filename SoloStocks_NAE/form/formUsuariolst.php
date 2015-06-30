@@ -5,6 +5,9 @@ $oUsuario=new Usuario();
 <input type="hidden" name="hidcodigo" id="hidcodigo" value="" />
 	<table style="width:700px;">
 		<tr>
+			<td colspan="5" style="text-align: right;"><a href="form/formUsuarioPDF.php"><img src="img/pdf.png" height="16" width="16" />Guardar Pdf</a></td>
+		</tr>
+		<tr>
 			<td colspan="5" height="30" valign="middle" align="center" style="color:#ffffff;background-color:#ff5512;">Usuarios</td>
 		</tr>
 		<tr style="background-color:#d8d8b1;">
