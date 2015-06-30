@@ -1,12 +1,6 @@
 <?php
 
-class Proveedor{
-	
-	private $nCodigo;
-	private $sDescripcion;
-	private $sCantidad;
-	private $sPrecio;
-	
+class Producto{
 	
 	/* ****************************** */
 	/*     P R O P I E D A D E S      */

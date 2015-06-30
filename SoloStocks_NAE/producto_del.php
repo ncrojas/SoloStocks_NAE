@@ -14,7 +14,7 @@ include('valida_acceso.php');
 <body>
 <?php 
 include('menu.php');
-include('/form/forProductoEliminar.php');
+include('/form/formProductoEliminar.php');
 ?>
 </body>
 </html>
